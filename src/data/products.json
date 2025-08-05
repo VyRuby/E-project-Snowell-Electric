@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "name": "Vacuum Cleaner",
+    "image": ""
+  },
+  {
+      "id": "2",
+    "name": "Air Purifier",
+    "image": ""
+  },
+  {
+      "id": "3",
+    "name": "Geysers",
+    "image": ""
+  },
+  {
+      "id": "4",
+    "name": "Fans",
+    "image": ""
+  }
+]
