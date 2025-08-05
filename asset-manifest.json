@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/E-project-Snowell-Electric/static/css/main.e6c13ad2.css",
+    "main.js": "/E-project-Snowell-Electric/static/js/main.2aaf7b6c.js",
+    "static/js/453.0d7b149d.chunk.js": "/E-project-Snowell-Electric/static/js/453.0d7b149d.chunk.js",
+    "index.html": "/E-project-Snowell-Electric/index.html",
+    "main.e6c13ad2.css.map": "/E-project-Snowell-Electric/static/css/main.e6c13ad2.css.map",
+    "main.2aaf7b6c.js.map": "/E-project-Snowell-Electric/static/js/main.2aaf7b6c.js.map",
+    "453.0d7b149d.chunk.js.map": "/E-project-Snowell-Electric/static/js/453.0d7b149d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.2aaf7b6c.js"
+  ]
+}
