@@ -1,12 +1,214 @@
 [
-
   {
-    "id": "5",
-    "name": "Cordless Vacuum",
-    "brand": "Snowell",
-    "price": 149.99,
+    "category": "LED and Lightning",
+    "type": "LED",
+    "id": "LED-001",
+    "name": "EcoBright LED Bulb",
+    "brand": "LuminaTech",
+    "price": 4.99,
+    "wattage": "10W",
+    "stock": 120,
+    "description": "Energy-saving warm white LED bulb for home lighting.",
+    "image": "images/ledbulb1.jpg"
+  },
+  {
+    "category": "LED and Lightning",
+    "type": "CFL",
+    "id": "CFL-001",
+    "name": "Compact Fluorescent Lamp",
+    "brand": "BrightSave",
+    "price": 3.49,
+    "wattage": "15W",
+    "stock": 80,
+    "description": "Efficient CFL bulb with soft white light for everyday use.",
+    "image": "images/cflbulb1.jpg"
+  },
+  {
+    "category": "Fan",
+    "type": "Standing fan",
+    "id": "FAN-101",
+    "name": "AeroBreeze Tower Fan",
+    "brand": "CoolAir",
+    "price": 49.99,
+    "features": [
+      "3-speed",
+      "Oscillation",
+      "Remote Control"
+    ],
+    "stock": 45,
+    "description": "Slim design tower fan with quiet operation.",
+    "image": "images/towerfan1.jpg"
+  },
+  {
+    "category": "Fan",
+    "type": "Air conditioner fan",
+    "id": "FAN-102",
+    "name": "ChillMist Evaporative Cooler",
+    "brand": "FrostWave",
+    "price": 79.99,
+    "features": [
+      "3-speed",
+      "Water Tank",
+      "Remote Control"
+    ],
+    "stock": 30,
+    "description": "Portable evaporative fan for cooling in dry climates.",
+    "image": "images/acfan1.jpg"
+  },
+  {
+    "category": "Heater",
+    "type": "Heater",
+    "id": "HT-301",
+    "name": "HeatWave Ceramic Heater",
+    "brand": "WarmNest",
+    "price": 69.99,
+    "power": "1500W",
+    "stock": 35,
+    "description": "Portable ceramic heater with adjustable thermostat.",
+    "image": "images/ceramicheater1.jpg"
+  },
+  {
+    "category": "Heater",
+    "type": "Heater",
+    "id": "HT-302",
+    "name": "CozyGlow Space Heater",
+    "brand": "WarmNest",
+    "price": 54.99,
+    "power": "1200W",
+    "stock": 40,
+    "description": "Compact space heater with safety shut-off.",
+    "image": "images/spaceheater1.jpg"
+  },
+  {
     "category": "Vacuum Cleaner",
-    "subCategory": "Cordless",
-    "image": ""
+    "type": "Handheld",
+    "id": "VC-401",
+    "name": "QuickClean Handheld Vacuum",
+    "brand": "DustBuster",
+    "price": 39.99,
+    "features": [
+      "Lightweight",
+      "Crevice Tool",
+      "Washable Filter"
+    ],
+    "stock": 60,
+    "description": "Compact handheld vacuum for spot cleaning.",
+    "image": "images/handheldvac1.jpg"
+  },
+  {
+    "category": "Vacuum Cleaner",
+    "type": "Cordless",
+    "id": "VC-402",
+    "name": "PowerSweep Cordless Vacuum",
+    "brand": "SwiftClean",
+    "price": 149.99,
+    "battery_life": "40 min",
+    "features": [
+      "Multi-surface Cleaning"
+    ],
+    "stock": 25,
+    "description": "Lightweight cordless stick vacuum for everyday use.",
+    "image": "images/cordlessvac1.jpg"
+  },
+  {
+    "category": "Air Purifier",
+    "type": "Air Purifier",
+    "id": "AP-501",
+    "name": "PureAir Pro",
+    "brand": "FreshBreeze",
+    "price": 129.99,
+    "filter_type": "HEPA",
+    "coverage_area": "30m2",
+    "features": [
+      "PM2.5 Sensor",
+      "Auto Mode",
+      "Filter Change Alert"
+    ],
+    "stock": 40,
+    "description": "Advanced air purifier for clean indoor air.",
+    "image": "images/airpurifier1.jpg"
+  },
+  {
+    "category": "Air Purifier",
+    "type": "Air Purifier",
+    "id": "AP-502",
+    "name": "CleanAir Mini",
+    "brand": "FreshBreeze",
+    "price": 89.99,
+    "filter_type": "HEPA",
+    "coverage_area": "20m2",
+    "features": [
+      "Quiet Mode",
+      "Filter Change Alert"
+    ],
+    "stock": 50,
+    "description": "Compact air purifier for small spaces.",
+    "image": "images/airpurifier2.jpg"
+  },
+  {
+    "category": "Geysers",
+    "type": "Geysers",
+    "id": "GY-601",
+    "name": "HotSpring Instant Water Heater",
+    "brand": "AquaHeat",
+    "price": 89.99,
+    "capacity": "3L",
+    "power": "3000W",
+    "mounting": "Wall mount",
+    "stock": 20,
+    "description": "Compact instant geyser for quick hot water.",
+    "image": "images/geyser1.jpg"
+  },
+  {
+    "category": "Geysers",
+    "type": "Geysers",
+    "id": "GY-602",
+    "name": "ThermaFlow Water Heater",
+    "brand": "AquaHeat",
+    "price": 99.99,
+    "capacity": "5L",
+    "power": "3500W",
+    "mounting": "Wall mount",
+    "stock": 15,
+    "description": "High-capacity instant geyser for larger households.",
+    "image": "images/geyser2.jpg"
+  },
+  {
+    "category": "Cooking Appliances",
+    "type": "Blender",
+    "id": "CA-701",
+    "name": "PowerBlend Pro Blender",
+    "brand": "KitchenMaster",
+    "price": 59.99,
+    "power": "800W",
+    "features": [
+      "Pulse Mode",
+      "Stainless Steel Blades",
+      "1.8L BPA-Free Jar",
+      "Overheat Protection",
+      "Ice Crush Function",
+      "Non-slip Rubber Feet"
+    ],
+    "stock": 50,
+    "description": "High-power blender for smoothies and more.",
+    "image": "images/blender1.jpg"
+  },
+  {
+    "category": "Cooking Appliances",
+    "type": "Electric Kettle",
+    "id": "CA-703",
+    "name": "RapidBoil Electric Kettle",
+    "brand": "BrewQuick",
+    "price": 29.99,
+    "power": "2000W",
+    "features": [
+      "Fast Boiling with 2000W Power",
+      "Auto Shut-Off & Boil-Dry Protection",
+      "360° Rotational Cordless Base",
+      "Stainless Steel Body"
+    ],
+    "stock": 70,
+    "description": "Quick-boiling electric kettle with safety features.",
+    "image": "images/electrickettle1.jpg"
   }
 ]
