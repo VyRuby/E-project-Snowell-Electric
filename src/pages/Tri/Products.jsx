@@ -52,20 +52,37 @@ const Products = () => {
     } else {
       setFilteredProducts(
         productsData.filter(product => {
-          // Check if either category or type matches any selected key
-          const matchesCategory = selectedKeys.some(key => 
-            normalize(key) === normalize(product.category)
+          // Find the main category for the current product from the `categories` array.
+          const mainCategory = categories.find(cat => 
+            normalize(cat.name) === normalize(product.category) ||
+            (cat.sub && cat.sub.some(sub => normalize(sub.name) === normalize(product.type)))
           );
-          const matchesType = selectedKeys.some(key => 
-            normalize(key) === normalize(product.type)
-          );
-          
-          // If a category is selected, include all its products unless a specific subcategory is selected
-          const categoryHasSubSelected = categories.find(cat => 
-            normalize(cat.name) === normalize(product.category)
-          )?.sub?.some(sub => selected[sub.name]);
 
-          return matchesCategory || (matchesType && !categoryHasSubSelected);
+          // If no main category is found for the product, it shouldn't be included.
+          if (!mainCategory) {
+            return false;
+          }
+
+          // Check if the product's main category is selected.
+          const isMainCategorySelected = selectedKeys.includes(mainCategory.name);
+
+          // Check if any subcategory of this product's main category is selected.
+          const hasSubcategorySelected = mainCategory.sub && mainCategory.sub.some(sub => selectedKeys.includes(sub.name));
+          
+          // Check if the product's type matches any of the selected subcategories.
+          const isSubcategoryMatch = mainCategory.sub && selectedKeys.some(key => normalize(key) === normalize(product.type));
+
+          // Filtering Logic
+          // If a main category is selected but none of its subcategories are, show all products under that main category.
+          if (isMainCategorySelected && !hasSubcategorySelected) {
+            return true;
+          }
+          // If one or more subcategories are selected, show only products whose type matches the selected subcategory.
+          else if (hasSubcategorySelected) {
+            return isSubcategoryMatch;
+          }
+
+          return false;
         })
       );
     }
