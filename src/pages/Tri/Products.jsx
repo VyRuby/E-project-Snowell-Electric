@@ -13,37 +13,60 @@ const categories = [
   { name: "Kitchen Appliances" }
 ];
 
+const normalize = str => (str || "").toLowerCase().trim();
+
 const Products = () => {
   const [expanded, setExpanded] = useState({});
   const [selected, setSelected] = useState({});
   const [filteredProducts, setFilteredProducts] = useState(productsData);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const toggleExpand = (category) => {
-    setExpanded((prev) => ({
+  const toggleExpand = category => {
+    setExpanded(prev => ({
       ...prev,
       [category]: !prev[category]
     }));
   };
 
-  const toggleSelect = (category) => {
-    setSelected((prev) => ({
-      ...prev,
-      [category]: !prev[category]
-    }));
+  const toggleSelect = (name, subList = []) => {
+    setSelected(prev => {
+      const isSelected = !prev[name];
+      const newSelected = { ...prev, [name]: isSelected };
+
+      // If category is deselected, deselect all its subcategories
+      if (!isSelected && subList.length > 0) {
+        subList.forEach(sub => {
+          newSelected[sub.name] = false;
+        });
+      }
+
+      return newSelected;
+    });
   };
 
   useEffect(() => {
-    const selectedKeys = Object.keys(selected).filter((key) => selected[key]);
+    const selectedKeys = Object.keys(selected).filter(key => selected[key]);
+    
     if (selectedKeys.length === 0) {
       setFilteredProducts(productsData);
     } else {
       setFilteredProducts(
-        productsData.filter(
-          (product) =>
-            selectedKeys.includes(product.category) ||
-            selectedKeys.includes(product.type)
-        )
+        productsData.filter(product => {
+          // Check if either category or type matches any selected key
+          const matchesCategory = selectedKeys.some(key => 
+            normalize(key) === normalize(product.category)
+          );
+          const matchesType = selectedKeys.some(key => 
+            normalize(key) === normalize(product.type)
+          );
+          
+          // If a category is selected, include all its products unless a specific subcategory is selected
+          const categoryHasSubSelected = categories.find(cat => 
+            normalize(cat.name) === normalize(product.category)
+          )?.sub?.some(sub => selected[sub.name]);
+
+          return matchesCategory || (matchesType && !categoryHasSubSelected);
+        })
       );
     }
   }, [selected]);
@@ -54,14 +77,14 @@ const Products = () => {
       <div style={{ width: "250px", padding: "10px", border: "1px solid #ccc" }}>
         <h3>Product Categories</h3>
         <ul style={{ listStyle: "none", paddingLeft: 0 }}>
-          {categories.map((cat) => (
+          {categories.map(cat => (
             <li key={cat.name} style={{ marginBottom: "5px" }}>
               <label style={{ display: "flex", alignItems: "center" }}>
                 <input
                   type="checkbox"
                   checked={selected[cat.name] || false}
                   onChange={() => {
-                    toggleSelect(cat.name);
+                    toggleSelect(cat.name, cat.sub || []);
                     if (cat.sub) toggleExpand(cat.name);
                   }}
                 />
@@ -74,7 +97,7 @@ const Products = () => {
                       background: "transparent",
                       cursor: "pointer"
                     }}
-                    onClick={(e) => {
+                    onClick={e => {
                       e.stopPropagation();
                       toggleExpand(cat.name);
                     }}
@@ -85,7 +108,7 @@ const Products = () => {
               </label>
               {cat.sub && expanded[cat.name] && (
                 <ul style={{ listStyle: "none", paddingLeft: "20px" }}>
-                  {cat.sub.map((subCat) => (
+                  {cat.sub.map(subCat => (
                     <li key={subCat.name}>
                       <label>
                         <input

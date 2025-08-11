@@ -1,9 +1,30 @@
-import React, { useState } from "react";
-import Carousel from "react-bootstrap/Carousel"; // if using react-bootstrap
-import { Link } from "react-router-dom";
-import productsData from "../../data/products.json"; 
+import React from "react";
+import Carousel from "react-bootstrap/Carousel";
+
 export default function ProductDetails({ product, onClose }) {
   if (!product) return null;
+
+  // Function to format key names for display (e.g., 'battery_life' -> 'Battery Life')
+  const formatKey = (key) => {
+    return key
+      .split('_')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  };
+
+  // Function to render value based on its type
+  const renderValue = (value) => {
+    if (Array.isArray(value)) {
+      return (
+        <ul>
+          {value.map((item, idx) => (
+            <li key={idx}>{item}</li>
+          ))}
+        </ul>
+      );
+    }
+    return value?.toString() || 'N/A';
+  };
 
   return (
     <div
@@ -13,7 +34,7 @@ export default function ProductDetails({ product, onClose }) {
     >
       <div
         className="modal-dialog modal-lg"
-        onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
+        onClick={(e) => e.stopPropagation()}
       >
         <div className="modal-content">
           <div className="modal-header">
@@ -38,40 +59,39 @@ export default function ProductDetails({ product, onClose }) {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="/placeholder.jpg"
-                    alt="No image"
+                    src={product.image || "/placeholder.jpg"}
+                    alt="Product"
                     style={{ height: "300px", objectFit: "contain" }}
                   />
                 </Carousel.Item>
               )}
             </Carousel>
 
-            {/* Product info */}
+            {/* Product Info */}
             <h4 className="mt-3">{product.name}</h4>
-            <p>{product.brand}</p>
-            <p>
-              {product.price !== undefined
-                ? `$${product.price.toFixed(2)}`
-                : "Price not available"}
-            </p>
-
-            {/* Product details table */}
-            {product.details && (
-              <table className="table table-bordered mt-3">
-                <tbody>
-                  {Object.entries(product.details).map(([key, value], idx) => (
+            <table className="table table-bordered mt-3">
+              <tbody>
+                {Object.entries(product).map(([key, value], idx) => (
+                  key !== 'images' && key !== 'details' && key !== 'image' && (
                     <tr key={idx}>
-                      <th>{key}</th>
-                      <td>{value}</td>
+                      <th>{formatKey(key)}</th>
+                      <td>{renderValue(value)}</td>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            )}
+                  )
+                ))}
+                {product.details && Object.keys(product.details).length > 0 && (
+                  Object.entries(product.details).map(([key, value], idx) => (
+                    <tr key={`details-${idx}`}>
+                      <th>{formatKey(key)}</th>
+                      <td>{renderValue(value)}</td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
   );
 }
-
