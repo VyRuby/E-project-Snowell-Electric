@@ -174,8 +174,7 @@
     "image": "images/geyser2.jpg"
   },
   {
-    "category": "Cooking Appliances",
-    "type": "Blender",
+    "category": "Kitchen Appliances",
     "id": "CA-701",
     "name": "PowerBlend Pro Blender",
     "brand": "KitchenMaster",
@@ -194,7 +193,7 @@
     "image": "images/blender1.jpg"
   },
   {
-    "category": "Cooking Appliances",
+    "category": "Kitchen Appliances",
     "type": "Electric Kettle",
     "id": "CA-703",
     "name": "RapidBoil Electric Kettle",
@@ -211,4 +210,38 @@
     "description": "Quick-boiling electric kettle with safety features.",
     "image": "images/electrickettle1.jpg"
   }
+  ,
+  {
+    "category": "Kitchen Appliances",
+    "type": "Toaster",
+    "id": "CA-704",
+    "name": "CrispToast 2-Slice Toaster",
+    "brand": "ToastMaster",
+    "price": 24.99,
+    "features": [
+      "7 Browning Levels",
+      "Extra Wide Slots",
+      "Removable Crumb Tray"
+    ],
+    "stock": 65,
+    "description": "Compact toaster with adjustable browning control.",
+    "image": "images/toaster1.jpg"
+  }
+  ,
+  {
+    "category": "Kitchen Appliances",
+    "type": "Rice Cooker",
+    "id": "CA-705",
+    "name": "PerfectCook Rice Cooker",
+    "brand": "Chef'sChoice",
+    "price": 39.99,
+    "capacity": "1.8L",
+    "features": [
+      "Keep Warm Function",
+      "Non-Stick Inner Pot"
+    ],
+    "stock": 55,
+    "description": "Automatic rice cooker with keep warm function.",
+    "image": "images/ricecooker1.jpg"
+  } 
 ]
