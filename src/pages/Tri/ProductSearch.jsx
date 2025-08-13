@@ -1,15 +1,21 @@
+
 import React, { useState } from 'react';
+import productsData from '../../data/products.json';
 
 const ProductSearch = ({ products, onViewDetails }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortOption, setSortOption] = useState('default');
+  const [statusFilter, setStatusFilter] = useState('All');
 
   const handleSearch = (event) => setSearchTerm(event.target.value);
   const handleSortChange = (event) => setSortOption(event.target.value);
+  const handleStatusFilter = (status) => setStatusFilter(status);
 
-  let filteredProducts = products.filter(product =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  let filteredProducts = products.filter(product => {
+    const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesStatus = statusFilter === 'All' || product.status === statusFilter;
+    return matchesSearch && matchesStatus;
+  });
 
   if (sortOption === 'low') {
     filteredProducts.sort((a, b) => a.price - b.price);
@@ -19,13 +25,28 @@ const ProductSearch = ({ products, onViewDetails }) => {
 
   return (
     <div>
-      {/* Top filters & search/sort bar */}
+      {/* Bộ lọc theo status/ tìm kiếm theo tên */}
       <div className="d-flex justify-content-between align-items-center mb-3 flex-wrap">
-        {/* Filter buttons */}
+        {/* Lọc All/Newest/Best Sellers */}
         <div className="mb-2 mb-md-0">
-          <button className="btn btn-outline-primary rounded-pill me-2">All</button>
-          <button className="btn btn-outline-primary rounded-pill me-2">Newest</button>
-          <button className="btn btn-outline-primary rounded-pill">Best Sellers</button>
+          <button
+            className={`btn rounded-pill me-2 ${statusFilter === 'All' ? 'btn-primary' : 'btn-outline-primary'}`}
+            onClick={() => handleStatusFilter('All')}
+          >
+            All
+          </button>
+          <button
+            className={`btn rounded-pill me-2 ${statusFilter === 'Newest' ? 'btn-primary' : 'btn-outline-primary'}`}
+            onClick={() => handleStatusFilter('Newest')}
+          >
+            Newest
+          </button>
+          <button
+            className={`btn rounded-pill ${statusFilter === 'Best Sellers' ? 'btn-primary' : 'btn-outline-primary'}`}
+            onClick={() => handleStatusFilter('Best Sellers')}
+          >
+            Best Sellers
+          </button>
         </div>
 
         {/* Search + sort */}
@@ -62,7 +83,6 @@ const ProductSearch = ({ products, onViewDetails }) => {
               />
               <div className="card-body">
                 <h5 className="card-title">{product.name}</h5>
-                <p className="card-text">{product.brand}</p>
                 <p className="fw-bold">${product.price}</p>
                 <button
                   className="btn btn-primary rounded-pill"

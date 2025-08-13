@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import productsData from "../../data/products.json";
 import ProductDetails from "./ProductDetails";
 import ProductSearch from "./ProductSearch";
+import ProductCatalogue from "./ProductCatalogue";
 
+// Categories for filtering products
 const categories = [
   { name: "LED and Lightning", sub: [{ name: "LED" }, { name: "CFL" }] },
   { name: "Fans", sub: [{ name: "Standing Fan" }, { name: "A-C Fan" }] },
@@ -93,11 +95,11 @@ const Products = () => {
       {/* Sidebar */}
       <div style={{ width: "250px", padding: "10px"  }}>
         <h3>Product Categories</h3>
-        <ul style={{ listStyle: "none", paddingLeft: 0 }} className="form-check shadow-sm rounded" >
+        <ul style={{ listStyle: "none", paddingLeft: 0 }}  >
           {categories.map(cat => (
-            <li key={cat.name} style={{ marginBottom: "5px" }}>
+            <li key={cat.name} style={{ marginBottom: "5px" }} >
               <label style={{ display: "flex", alignItems: "center" }}>
-                <input
+                <input 
                   type="checkbox"
                   checked={selected[cat.name] || false}
                   onChange={() => {
@@ -124,11 +126,11 @@ const Products = () => {
                 )}
               </label>
               {cat.sub && expanded[cat.name] && (
-                <ul style={{ listStyle: "none", paddingLeft: "20px" }}>
+                <ul style={{ listStyle: "none", paddingLeft: "20px" }} >
                   {cat.sub.map(subCat => (
-                    <li key={subCat.name}>
+                    <li key={subCat.name} >
                       <label>
-                        <input
+                        <input 
                           type="checkbox"
                           checked={selected[subCat.name] || false}
                           onChange={() => toggleSelect(subCat.name)}
@@ -142,10 +144,14 @@ const Products = () => {
             </li>
           ))}
         </ul>
+
+        <ProductCatalogue />
+        {/* Export Buttons */}
       </div>
 
       {/* Main Content */}
       <div style={{ flex: 1 }}>
+        
         <h3>Products</h3>
         <ProductSearch
           products={filteredProducts}

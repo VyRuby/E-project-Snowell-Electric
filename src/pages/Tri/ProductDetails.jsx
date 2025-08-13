@@ -71,14 +71,17 @@ export default function ProductDetails({ product, onClose }) {
             <h4 className="mt-3">{product.name}</h4>
             <table className="table table-bordered mt-3">
               <tbody>
-                {Object.entries(product).map(([key, value], idx) => (
-                  key !== 'images' && key !== 'details' && key !== 'image' && (
+                {Object.entries(product).map(([key, value], idx) => {
+                  if (['images', 'details', 'image', 'status'].includes(key)) {
+                    return null;
+                  }
+                  return (
                     <tr key={idx}>
                       <th>{formatKey(key)}</th>
                       <td>{renderValue(value)}</td>
                     </tr>
-                  )
-                ))}
+                  );
+                })}
                 {product.details && Object.keys(product.details).length > 0 && (
                   Object.entries(product.details).map(([key, value], idx) => (
                     <tr key={`details-${idx}`}>
