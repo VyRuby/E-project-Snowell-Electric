@@ -89,11 +89,11 @@ const Products = () => {
   }, [selected]);
 
   return (
-    <div style={{ display: "flex", gap: "20px" }}>
+    <div className="container my-5" style={{ display: "flex", flexDirection: "row", gap: "20px" }}>
       {/* Sidebar */}
-      <div style={{ width: "250px", padding: "10px", border: "1px solid #ccc" }}>
+      <div style={{ width: "250px", padding: "10px"  }}>
         <h3>Product Categories</h3>
-        <ul style={{ listStyle: "none", paddingLeft: 0 }}>
+        <ul style={{ listStyle: "none", paddingLeft: 0 }} className="form-check shadow-sm rounded" >
           {categories.map(cat => (
             <li key={cat.name} style={{ marginBottom: "5px" }}>
               <label style={{ display: "flex", alignItems: "center" }}>
