@@ -12,6 +12,10 @@ import NewsPage from './pages/Ngoc/News';
 import BlogDetail from './components/Ngoc/BlogDetail';
 import FooterTimeLocation from './components/FooterTimeLocation';
 
+import Products from './pages/Tri/Products';
+import ProductDetails from "./pages/Tri/ProductDetails";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <>
@@ -21,11 +25,13 @@ function App() {
         <ScrollToTop /> 
         <Routes>
           <Route path="/" element={<Homepage />} />
-
+          <Route path ="/products" element={<Products/>} />
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/news" element={<NewsPage />} />
           <Route path="/news/:id" element={<BlogDetail/>} />
+          <Route path="/product/:id" element={<Products />} />
+          <Route path="/product-details/:id" element={<ProductDetails />} />
           {/* <Route path="/product-detail/:id" element={<ProductDetail />} /> */}
 
 
@@ -36,6 +42,7 @@ function App() {
           <VisitorCount />
         </div>
         <FooterTimeLocation/>
+
         <Footer />
       </div>
 
