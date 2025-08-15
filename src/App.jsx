@@ -6,6 +6,11 @@ import Header from './components/Header';
 import Homepage from './pages/Ngoc/Homepage';
 import ContactUs from './pages/Ngoc/Contactus';
 import Aboutus from './pages/Ngoc/Aboutus';
+import VisitorCount from './components/VisitorCount';
+import ScrollToTop from './components/Ngoc/ScrollToTop';
+import NewsPage from './pages/Ngoc/News';
+import BlogDetail from './components/Ngoc/BlogDetail';
+import FooterTimeLocation from './components/FooterTimeLocation';
 
 function App() {
   return (
@@ -13,16 +18,24 @@ function App() {
       <div className="App">
 
         <Header />
+        <ScrollToTop /> 
         <Routes>
           <Route path="/" element={<Homepage />} />
-          
-          <Route path="/aboutus" element={<Aboutus/>} />
-          <Route path="/contactus" element={<ContactUs/>} />
 
-          
+          <Route path="/aboutus" element={<Aboutus />} />
+          <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/news" element={<NewsPage />} />
+          <Route path="/news/:id" element={<BlogDetail/>} />
+          {/* <Route path="/product-detail/:id" element={<ProductDetail />} /> */}
+
+
           {/* các route khác nếu có */}
-          <Route path="*" element={<div>404 - PAGE NOT FOUND</div>} />
+          <Route path="*" element={<div className="container my-5">404 - PAGE NOT FOUND</div>} />
         </Routes>
+        <div>
+          <VisitorCount />
+        </div>
+        <FooterTimeLocation/>
         <Footer />
       </div>
 

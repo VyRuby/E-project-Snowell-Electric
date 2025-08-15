@@ -4,6 +4,7 @@ import HomeProductList from "../../components/Ngoc/HomeProductList";
 import HomeNewsletter from "../../components/Ngoc/HomeNewsletter";
 import HomeAbout from "../../components/Ngoc/HomeAboutUs";
 import HomeNews from "../../components/Ngoc/HomeNews";
+import BestSeller from "../../components/Ngoc/BestSeller";
 
 const title = {
     margin: '1rem 4rem ',
@@ -22,7 +23,7 @@ function Homepage() {
                     <div><HomeProductList /></div>
                 </div>
                 <div><h4 style={title}>Best Seller</h4>
-                    <div><HomeProductList /></div>
+                    <div><BestSeller /></div>
                 </div>
                 <div className="container my-5">
                     <div className="row gy-4">
@@ -40,6 +41,7 @@ function Homepage() {
                 <div><h4 style={title}>Newsletter</h4>
                     <div><HomeNewsletter /></div>
                 </div>
+                
 
             </div>
         </div>
