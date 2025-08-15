@@ -26,13 +26,13 @@ function Header() {
       to: "/Products",
       label: "Products",
       children: [
-        { to: "/Products?cat=led", label: "LED and Lighting" },
+        { to: "/Products?cat=led and lightning", label: "LED and Lighting" },
         { to: "/Products?cat=fans", label: "Fans" },
         { to: "/Products?cat=heater", label: "Heater" },
-        { to: "/Products?cat=vacuum", label: "Vacuum Cleaner" },
-        { to: "/Products?cat=air", label: "Air Purifier" },
+        { to: "/Products?cat=vacuum cleaner", label: "Vacuum Cleaner" },
+        { to: "/Products?cat=air purifier", label: "Air Purifier" },
         { to: "/Products?cat=geysers", label: "Geysers" },
-        { to: "/Products?cat=kitchen", label: "Kitchen" },
+        { to: "/Products?cat=kitchen appliances", label: "Kitchen" },
         { isDivider: true }, // Đánh dấu chỗ ngăn cách
         { to: "/Products", label: "ALL" }, 
       ],
