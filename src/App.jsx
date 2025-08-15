@@ -32,8 +32,6 @@ function App() {
           <Route path="/news/:id" element={<BlogDetail/>} />
           <Route path="/product/:id" element={<Products />} />
           <Route path="/product-details/:id" element={<ProductDetails />} />
-          {/* <Route path="/product-detail/:id" element={<ProductDetail />} /> */}
-
 
           {/* các route khác nếu có */}
           <Route path="*" element={<div className="container my-5">404 - PAGE NOT FOUND</div>} />

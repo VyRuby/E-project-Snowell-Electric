@@ -34,7 +34,7 @@ export default function HomeProductCard({ product }) {
             />
             <div className="card-body">
                 <h6 className="card-title">{product.name}</h6>
-                <Link to={`/Product?cat=${product.category}`}>
+                <Link to={`/Products?cat=${encodeURIComponent(product.category)}`}>
                     <button className="btn btn-primary btn-md" style={{ width: '110px' }}>
                         View
                     </button>

@@ -6,43 +6,40 @@ import HomeAbout from "../../components/Ngoc/HomeAboutUs";
 import HomeNews from "../../components/Ngoc/HomeNews";
 import BestSeller from "../../components/Ngoc/BestSeller";
 
-const title = {
-    margin: '1rem 4rem ',
-};
-
 function Homepage() {
     return (
         <div>
             <div className="Maincontent">
-                
                 <div>
                     <HomeBanner />
                 </div>
-                <div>
-                    <h4 style={title}>Category</h4>
-                    <div><HomeProductList /></div>
-                </div>
-                <div><h4 style={title}>Best Seller</h4>
-                    <div><BestSeller /></div>
-                </div>
-                <div className="container my-5">
+                <section className="container my-5">
+                    <h4 className="mb-4">Category</h4>
+                    <HomeProductList />
+                </section>
+
+                <section className="container my-5">
+                    <h4 className="mb-4">Best Seller</h4>
+                    <BestSeller />
+                </section>
+
+                <section className="container my-5">
                     <div className="row gy-4">
                         <div className="col-lg-6 col-md-12">
                             <h4>About Snowell Electric</h4>
                             <div><HomeAbout /></div>
                         </div>
                         <div className="col-lg-6 col-md-12">
-                            <h4>Hot news and promotion</h4>
+                            <h4>Hot news and blogs</h4>
                             <HomeNews />
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <div><h4 style={title}>Newsletter</h4>
-                    <div><HomeNewsletter /></div>
-                </div>
-                
-
+                <section className="container my-5">
+                    <h4 className="mb-4">Newsletter</h4>
+                    <HomeNewsletter />
+                </section>
             </div>
         </div>
 

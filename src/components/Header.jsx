@@ -23,18 +23,18 @@ function Header() {
   const navItems = [
     { to: "/", label: "Home" },
     {
-      to: "/Product",
+      to: "/Products",
       label: "Products",
       children: [
-        { to: "/Product?cat=led", label: "LED and Lighting" },
-        { to: "/Product?cat=fans", label: "Fans" },
-        { to: "/Product?cat=heater", label: "Heater" },
-        { to: "/Product?cat=vacuum", label: "Vacuum Cleaner" },
-        { to: "/Product?cat=air", label: "Air Purifier" },
-        { to: "/Product?cat=geysers", label: "Geysers" },
-        { to: "/Product?cat=kitchen", label: "Kitchen" },
+        { to: "/Products?cat=led", label: "LED and Lighting" },
+        { to: "/Products?cat=fans", label: "Fans" },
+        { to: "/Products?cat=heater", label: "Heater" },
+        { to: "/Products?cat=vacuum", label: "Vacuum Cleaner" },
+        { to: "/Products?cat=air", label: "Air Purifier" },
+        { to: "/Products?cat=geysers", label: "Geysers" },
+        { to: "/Products?cat=kitchen", label: "Kitchen" },
         { isDivider: true }, // Đánh dấu chỗ ngăn cách
-        { to: "/Product", label: "ALL" }, 
+        { to: "/Products", label: "ALL" }, 
       ],
     },
     { to: "/News", label: "News" },
