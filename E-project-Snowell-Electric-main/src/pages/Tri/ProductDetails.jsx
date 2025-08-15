@@ -1,10 +1,11 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
+import { getProductImages } from '../../utils/Imageutils'; // Import the utility function
 
 export default function ProductDetails({ product, onClose }) {
   if (!product) return null;
 
-  // Function to format key names for display (e.g., 'battery_life' -> 'Battery Life')
+  // Function to format key names for display
   const formatKey = (key) => {
     return key
       .split('_')
@@ -42,32 +43,21 @@ export default function ProductDetails({ product, onClose }) {
             <button type="button" className="btn-close" onClick={onClose}></button>
           </div>
           <div className="modal-body">
-            {/* Carousel */}
             <Carousel>
-              {product.images && product.images.length > 0 ? (
-                product.images.map((img, idx) => (
-                  <Carousel.Item key={idx}>
-                    <img
-                      className="d-block w-100"
-                      src={process.env.PUBLIC_URL + "/" + img}
-                      alt={`Slide ${idx}`}
-                      style={{ height: "300px", objectFit: "contain" }}
-                    />
-                  </Carousel.Item>
-                ))
-              ) : (
-                <Carousel.Item>
+              {getProductImages(product).map((img, idx) => (
+                <Carousel.Item key={idx}>
                   <img
                     className="d-block w-100"
-                    src={process.env.PUBLIC_URL + "/" + (product.image || "placeholder.jpg")}
-                    alt="Product"
+                    src={img}
+                    alt={`Slide ${idx}`}
                     style={{ height: "300px", objectFit: "contain" }}
+                    onError={(e) => {
+                      e.target.src = `${process.env.PUBLIC_URL}/images/placeholder.jpg`;
+                    }}
                   />
                 </Carousel.Item>
-              )}
+              ))}
             </Carousel>
-
-            {/* Product Info */}
             <h4 className="mt-3">{product.name}</h4>
             <table className="table table-bordered mt-3">
               <tbody>
