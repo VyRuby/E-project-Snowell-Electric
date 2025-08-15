@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getDisplayImage } from '../../utils/Imageutils'; // Import the utility function
+import { getDisplayImage } from '../../utils/imageUtils'; // Import the utility function
 
 
 const ProductSearch = ({ products, onViewDetails }) => {

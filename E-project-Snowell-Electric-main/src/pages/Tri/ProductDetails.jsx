@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
-import { getProductImages } from '../../utils/Imageutils'; // Import the utility function
+import { getProductImages } from '../../utils/imageUtils'; // Import the utility function
 
 export default function ProductDetails({ product, onClose }) {
   if (!product) return null;
