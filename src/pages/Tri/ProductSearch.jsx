@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import productsData from '../../data/products.json';
+import { getDisplayImage } from '../../utils/Imageutils'; // Import the utility function
+
 
 const ProductSearch = ({ products, onViewDetails }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -24,9 +25,7 @@ const ProductSearch = ({ products, onViewDetails }) => {
 
   return (
     <div>
-      {/* Bộ lọc theo status/ tìm kiếm theo tên */}
       <div className="d-flex justify-content-between align-items-center mb-3 flex-wrap">
-        {/* Lọc All/Newest/Best Sellers */}
         <div className="mb-2 mb-md-0">
           <button
             className={`btn rounded-pill me-2 ${statusFilter === 'All' ? 'btn-primary' : 'btn-outline-primary'}`}
@@ -47,8 +46,6 @@ const ProductSearch = ({ products, onViewDetails }) => {
             Best Sellers
           </button>
         </div>
-
-        {/* Search + sort */}
         <div className="d-flex">
           <input
             type="text"
@@ -68,17 +65,18 @@ const ProductSearch = ({ products, onViewDetails }) => {
           </select>
         </div>
       </div>
-
-      {/* Product Grid */}
       <div className="row g-3">
         {filteredProducts.map(product => (
           <div key={product.id} className="col-12 col-sm-6 col-md-4">
             <div className="card h-100 text-center">
               <img
-                src={process.env.PUBLIC_URL + "/" + product.image}
+                src={getDisplayImage(product)}
                 alt={product.name}
                 className="card-img-top p-3"
                 style={{ height: '150px', objectFit: 'contain' }}
+                onError={(e) => {
+                  e.target.src = `${process.env.PUBLIC_URL}/images/placeholder.jpg`;
+                }}
               />
               <div className="card-body">
                 <h5 className="card-title">{product.name}</h5>

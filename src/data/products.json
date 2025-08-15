@@ -8,7 +8,7 @@
     "wattage": "10W",
     "stock": 120,
     "description": "Energy-saving warm white LED bulb for home lighting.",
-    "image": "images/ledbulb1.jpg",
+    "images": "https://i.imgur.com/example.jpg",
     "status": "Best Sellers"
   },
   {
@@ -20,7 +20,6 @@
     "wattage": "20W",
     "stock": 60,
     "description": "High-intensity LED floodlight for outdoor use.",
-    "image": "images/ledfloodlight1.jpg",
     "status": "Newest"
   },
   {
@@ -36,7 +35,7 @@
     ],
     "stock": 75,
     "description": "Flexible LED strip light with multiple color options.",
-    "image": "images/ledstrip1.jpg",
+    "images": "images/ledstrip1.jpg",
     "status": "Best Sellers"
   },
   {
@@ -52,7 +51,7 @@
     ],
     "stock": 50,
     "description": "Smart LED panel light with adjustable brightness.",
-    "image": "images/smartledpanel1.jpg",
+    "images": "images/smartledpanel1.jpg",
     "status": "Newest"
   },
   {
@@ -64,7 +63,7 @@
     "wattage": "13W",
     "stock": 100,
     "description": "Compact spiral CFL bulb for energy-efficient lighting.",
-    "image": "images/ecocflbulb1.jpg",
+    "images": "images/ecocflbulb1.jpg",
     "status": "Best Sellers"
   },
   {
@@ -76,7 +75,7 @@
     "wattage": "15W",
     "stock": 80,
     "description": "Efficient CFL bulb with soft white light for everyday use.",
-    "image": "images/cflbulb1.jpg",
+    "images": "images/cflbulb1.jpg",
     "status": "Newest"
   },
   {
@@ -91,7 +90,7 @@
     ],
     "stock": 20,
     "description": "Stylish ceiling fan with energy-efficient motor.",
-    "image": "images/ceilingfan1.jpg",
+    "images": "images/ceilingfan1.jpg",
     "status": "Best Sellers"
   },
   {
@@ -107,7 +106,7 @@
     ],
     "stock": 45,
     "description": "Slim design tower fan with quiet operation.",
-    "image": "images/towerfan1.jpg",
+    "images": "images/towerfan1.jpg",
     "status": "Newest"
   },
   {
@@ -123,7 +122,7 @@
     ],
     "stock": 30,
     "description": "Portable evaporative fan for cooling in dry climates.",
-    "image": "images/acfan1.jpg",
+    "images": "images/acfan1.jpg",
     "status": "Newest"
   },
   {
@@ -138,7 +137,7 @@
     ],
     "stock": 50,
     "description": "Adjustable pedestal fan with powerful airflow.",
-    "image": "images/standingfan1.jpg",
+    "images": "images/standingfan1.jpg",
     "status": "Best Sellers"
   },
   {
@@ -150,7 +149,7 @@
     "power": "2000W",
     "stock": 25,
     "description": "Oil-filled radiator heater for efficient heating.",
-    "image": "images/oilheater1.jpg",
+    "images": "images/oilheater1.jpg",
     "status": "Best Sellers"
   },
   {
@@ -162,7 +161,7 @@
     "power": "1500W",
     "stock": 35,
     "description": "Portable ceramic heater with adjustable thermostat.",
-    "image": "images/ceramicheater1.jpg",
+    "images": "images/ceramicheater1.jpg",
     "status": "Best Sellers"
   },
   {
@@ -174,7 +173,7 @@
     "power": "1200W",
     "stock": 40,
     "description": "Compact space heater with safety shut-off.",
-    "image": "images/spaceheater1.jpg",
+    "images": "images/spaceheater1.jpg",
     "status": "Best Sellers"
   },
   {
@@ -190,7 +189,7 @@
     ],
     "stock": 60,
     "description": "Compact handheld vacuum for spot cleaning.",
-    "image": "images/handheldvac1.jpg",
+    "images": "images/handheldvac1.jpg",
     "status": "Newest"
   }, 
   {
@@ -206,7 +205,22 @@
     ],
     "stock": 20,
     "description": "Powerful upright vacuum for deep cleaning.",
-    "image": "images/uprightvac1.jpg",
+    "images": "images/uprightvac1.jpg",
+    "status": "Best Sellers"
+  },
+  {
+    "category": "Vacuum Cleaner",
+    "type": "Handheld",
+    "id": "VC-402",
+    "name": "CleanSweep Canister Vacuum",
+    "price": 129.99,
+    "features": [
+      "HEPA Filter",
+      "Variable Suction Control"
+    ],
+    "stock": 30,
+    "description": "Versatile canister vacuum for all floor types.",
+    "images": "images/canistervac1.jpg",
     "status": "Best Sellers"
   },
   {
@@ -222,7 +236,7 @@
     ],
     "stock": 15,
     "description": "Intelligent robot vacuum for automated cleaning.",
-    "image": "images/robotvac1.jpg",
+    "images": "images/robotvac1.jpg",
     "status": "Newest"
   },
   {
@@ -237,7 +251,7 @@
     ],
     "stock": 25,
     "description": "Lightweight cordless stick vacuum for everyday use.",
-    "image": "images/cordlessvac1.jpg",
+    "images": "images/cordlessvac1.jpg",
     "status": "Best Sellers"
   },
   {
@@ -255,7 +269,7 @@
     ],
     "stock": 40,
     "description": "Advanced air purifier for clean indoor air.",
-    "image": "images/airpurifier1.jpg",
+    "images": "images/airpurifier1.jpg",
     "status": "Best Sellers"
   },
   {
@@ -272,7 +286,7 @@
     ],
     "stock": 30,
     "description": "High-performance air purifier for large rooms.",
-    "image": "images/airpurifier3.jpg",
+    "images": "images/airpurifier3.jpg",
     "status": "Newest"
   },
   {
@@ -289,7 +303,7 @@
     ],
     "stock": 50,
     "description": "Compact air purifier for small spaces.",
-    "image": "images/airpurifier2.jpg",
+    "images": "images/airpurifier2.jpg",
     "status": "Best Sellers"
   },
   {
@@ -303,7 +317,7 @@
     "mounting": "Wall mount",
     "stock": 20,
     "description": "Compact instant geyser for quick hot water.",
-    "image": "images/geyser1.jpg",
+    "images": "images/geyser1.jpg",
     "status": "Best Sellers"
   },
   {
@@ -317,7 +331,7 @@
     "mounting": "Wall mount",
     "stock": 15,
     "description": "High-capacity instant geyser for larger households.",
-    "image": "images/geyser2.jpg",
+    "images": "images/geyser2.jpg",
     "status": "Newest"
   },
   {
@@ -336,7 +350,7 @@
     ],
     "stock": 50,
     "description": "High-power blender for smoothies and more.",
-    "image": "images/blender1.jpg",
+    "images": "images/blender1.jpg",
     "status": "Newest"
   },
   {
@@ -354,7 +368,7 @@
     ],
     "stock": 70,
     "description": "Quick-boiling electric kettle with safety features.",
-    "image": "images/electrickettle1.jpg",
+    "images": "images/electrickettle1.jpg",
     "status": "Newest"
   },
   {
@@ -370,7 +384,7 @@
     ],
     "stock": 65,
     "description": "Compact toaster with adjustable browning control.",
-    "image": "images/toaster1.jpg",
+    "images": "images/toaster1.jpg",
     "status": "Best Sellers"
   },
   {
@@ -386,7 +400,7 @@
     ],
     "stock": 55,
     "description": "Automatic rice cooker with keep warm function.",
-    "image": "images/ricecooker1.jpg",
+    "images": "images/ricecooker1.jpg",
     "status": "Newest"
   },
   {
@@ -402,7 +416,7 @@
     ],
     "stock": 30,
     "description": "Compact microwave oven with multiple cooking modes.",
-    "image": "images/microwave1.jpg",
+    "images": "images/microwave1.jpg",
     "status": "Best Sellers"
   }
 ]
