@@ -1,20 +1,29 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import productsData from "../../data/products.json";
+import ProductDetails from "../../pages/Tri/ProductDetails";
 
 function BestSeller() {
   const [products, setProducts] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
-    fetch("/data/bestSeller.json") // đọc file json trong public/data
-      .then(res => res.json())
-      .then(data => setProducts(data))
-      .catch(err => console.error("Error loading data:", err));
+    setProducts(productsData);
   }, []);
+
+  // Lọc Best Seller (không phân biệt hoa thường)
+  const bestSellers = products.filter(product =>
+    product.status?.toLowerCase().trim() === "best sellers"
+  );
+
+  if (bestSellers.length === 0) {
+    return <p className="text-center my-5">No best seller products found.</p>;
+  }
 
   return (
     <div className="container my-5">
       <div className="d-flex overflow-auto" style={{ gap: "15px" }}>
-        {products.map(product => (
+        {bestSellers.map(product => (
           <div
             key={product.id}
             className="card"
@@ -29,16 +38,23 @@ function BestSeller() {
             <div className="card-body">
               <h6 className="card-title">{product.name}</h6>
               <p className="card-text">${product.price}</p>
-              <Link
-                to={`/product-detail/${product.id}`}
+               <button
                 className="btn btn-primary btn-sm"
+                onClick={() => setSelectedProduct(product)}
               >
                 Detail
-              </Link>
+              </button>
             </div>
           </div>
         ))}
       </div>
+       {/* Modal hiển thị khi có sản phẩm được chọn */}
+      {selectedProduct && (
+        <ProductDetails
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+        />
+      )}
     </div>
   );
 }

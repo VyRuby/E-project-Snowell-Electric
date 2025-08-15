@@ -3,6 +3,7 @@ import productsData from "../../data/products.json";
 import ProductDetails from "./ProductDetails";
 import ProductSearch from "./ProductSearch";
 import ProductCatalogue from "./ProductCatalogue";
+import { useLocation } from "react-router-dom";
 
 // Categories for filtering products
 const categories = [
@@ -18,10 +19,27 @@ const categories = [
 const normalize = str => (str || "").toLowerCase().trim();
 
 const Products = () => {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const categoryFromUrl = queryParams.get("cat"); // lấy cat từ URL
+
+
   const [expanded, setExpanded] = useState({});
   const [selected, setSelected] = useState({});
   const [filteredProducts, setFilteredProducts] = useState(productsData);
   const [selectedProduct, setSelectedProduct] = useState(null);
+
+  
+
+  // Khi mount lần đầu, nếu có cat thì tick luôn category đó
+  useEffect(() => {
+    if (categoryFromUrl) {
+      setSelected(prev => ({
+        ...prev,
+        [categoryFromUrl]: true
+      }));
+    }
+  }, [categoryFromUrl]);
 
   const toggleExpand = category => {
     setExpanded(prev => ({
@@ -48,14 +66,14 @@ const Products = () => {
 
   useEffect(() => {
     const selectedKeys = Object.keys(selected).filter(key => selected[key]);
-    
+
     if (selectedKeys.length === 0) {
       setFilteredProducts(productsData);
     } else {
       setFilteredProducts(
         productsData.filter(product => {
           // Find the main category for the current product from the `categories` array.
-          const mainCategory = categories.find(cat => 
+          const mainCategory = categories.find(cat =>
             normalize(cat.name) === normalize(product.category) ||
             (cat.sub && cat.sub.some(sub => normalize(sub.name) === normalize(product.type)))
           );
@@ -70,7 +88,7 @@ const Products = () => {
 
           // Check if any subcategory of this product's main category is selected.
           const hasSubcategorySelected = mainCategory.sub && mainCategory.sub.some(sub => selectedKeys.includes(sub.name));
-          
+
           // Check if the product's type matches any of the selected subcategories.
           const isSubcategoryMatch = mainCategory.sub && selectedKeys.some(key => normalize(key) === normalize(product.type));
 
@@ -90,16 +108,38 @@ const Products = () => {
     }
   }, [selected]);
 
+  // Khi load lần đầu, nếu có ?cat=... thì set selected tương ứng
+  useEffect(() => {
+    if (categoryFromUrl) {
+      const foundCat = categories.find(cat =>
+        normalize(cat.name) === normalize(categoryFromUrl) ||
+        (cat.sub && cat.sub.some(sub => normalize(sub.name) === normalize(categoryFromUrl)))
+      );
+
+      if (foundCat) {
+        if (normalize(foundCat.name) === normalize(categoryFromUrl)) {
+          // Main category
+          setSelected({ [foundCat.name]: true });
+        } else {
+          // Subcategory
+          const sub = foundCat.sub.find(sub => normalize(sub.name) === normalize(categoryFromUrl));
+          setSelected({ [foundCat.name]: true, [sub.name]: true });
+          setExpanded(prev => ({ ...prev, [foundCat.name]: true }));
+        }
+      }
+    }
+  }, [categoryFromUrl]);
+
   return (
     <div className="container my-5" style={{ display: "flex", flexDirection: "row", gap: "20px" }}>
       {/* Sidebar */}
-      <div style={{ width: "250px", padding: "10px"  }}>
+      <div style={{ width: "250px", padding: "10px" }}>
         <h3>Product Categories</h3>
         <ul style={{ listStyle: "none", paddingLeft: 0 }}  >
           {categories.map(cat => (
             <li key={cat.name} style={{ marginBottom: "5px" }} >
               <label style={{ display: "flex", alignItems: "center" }}>
-                <input 
+                <input
                   type="checkbox"
                   checked={selected[cat.name] || false}
                   onChange={() => {
@@ -130,7 +170,7 @@ const Products = () => {
                   {cat.sub.map(subCat => (
                     <li key={subCat.name} >
                       <label>
-                        <input 
+                        <input
                           type="checkbox"
                           checked={selected[subCat.name] || false}
                           onChange={() => toggleSelect(subCat.name)}
@@ -151,7 +191,7 @@ const Products = () => {
 
       {/* Main Content */}
       <div style={{ flex: 1 }}>
-        
+
         <h3>Products</h3>
         <ProductSearch
           products={filteredProducts}

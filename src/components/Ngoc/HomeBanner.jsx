@@ -54,7 +54,7 @@ function HomeBanner() {
       <div className="text-white px-3">
         <h1 className="banner-heading" style={headingStyles}>MODERN TECHNOLOGY</h1>
         <h1 className="banner-heading" style={headingStyles}>CONVENIENT LIVING</h1>
-        <Link to="/Product" className="btn btn-primary mt-4 px-4 py-2 fw-semibold" style={buttonStyles}>
+        <Link to="/Products" className="btn btn-primary mt-4 px-4 py-2 fw-semibold" style={buttonStyles}>
           Explore now
         </Link>
       </div>
