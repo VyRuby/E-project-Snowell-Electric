@@ -49,7 +49,7 @@ export default function ProductDetails({ product, onClose }) {
                   <Carousel.Item key={idx}>
                     <img
                       className="d-block w-100"
-                      src={`/${img}`}
+                      src={process.env.PUBLIC_URL + "/" + img}
                       alt={`Slide ${idx}`}
                       style={{ height: "300px", objectFit: "contain" }}
                     />
@@ -59,7 +59,7 @@ export default function ProductDetails({ product, onClose }) {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src={product.image || "/placeholder.jpg"}
+                    src={process.env.PUBLIC_URL + "/" + (product.image || "placeholder.jpg")}
                     alt="Product"
                     style={{ height: "300px", objectFit: "contain" }}
                   />

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import productsData from '../../data/products.json';
 
@@ -76,7 +75,7 @@ const ProductSearch = ({ products, onViewDetails }) => {
           <div key={product.id} className="col-12 col-sm-6 col-md-4">
             <div className="card h-100 text-center">
               <img
-                src={product.image}
+                src={process.env.PUBLIC_URL + "/" + product.image}
                 alt={product.name}
                 className="card-img-top p-3"
                 style={{ height: '150px', objectFit: 'contain' }}

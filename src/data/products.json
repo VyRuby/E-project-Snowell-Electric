@@ -211,21 +211,6 @@
   },
   {
     "category": "Vacuum Cleaner",
-    "type": "Handheld",
-    "id": "VC-402",
-    "name": "CleanSweep Canister Vacuum",
-    "price": 129.99,
-    "features": [
-      "HEPA Filter",
-      "Variable Suction Control"
-    ],
-    "stock": 30,
-    "description": "Versatile canister vacuum for all floor types.",
-    "image": "images/canistervac1.jpg",
-    "status": "Best Sellers"
-  },
-  {
-    "category": "Vacuum Cleaner",
     "type": "Robot",
     "id": "VC-403",
     "name": "SmartSweep Robot Vacuum",
